@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer, Header } from "../site-chrome";
+import { LiveEvents } from "./live-events";
 
 export const metadata: Metadata = { title: "Events" };
 
@@ -15,17 +15,7 @@ export default function EventsPage() {
           Join a Network Animal event to discover meaningful matches, meet with
           intention, and build relationships that continue after the room clears.
         </p>
-        <article className="content-card event-card">
-          <div className="date-block"><strong>SEP</strong><span>24</span><small>2026</small></div>
-          <div className="event-details">
-            <p>Thursday, September 24, 2026 · 5:30–9:30 PM PT</p>
-            <h2>Built Different Wildcard Charity Poker Tournament</h2>
-            <p>Hilton Irvine Orange County Airport · Irvine, California</p>
-            <Link className="button primary" href="/events/built-different-wildcard-charity-poker-tournament">
-              View event
-            </Link>
-          </div>
-        </article>
+        <LiveEvents />
       </main>
       <Footer />
     </>
