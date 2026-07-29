@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AnimatedFace } from "./animated-face";
 import { Footer, Header } from "./site-chrome";
 
 const event = {
@@ -33,15 +34,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-mark" aria-label="The Network Animal eyes wake up and smile">
-            <div className="eyes-card">
-              <img
-                src="/networkanimal-eyes.png"
-                alt="Network Animal eyes"
-                width={620}
-                height={620}
-              />
-              <span className="smile" aria-hidden="true" />
-            </div>
+            <div className="eyes-stage"><AnimatedFace /></div>
             <p>Look around. The right relationship may already be in the room.</p>
           </div>
         </section>

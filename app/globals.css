@@ -34,7 +34,7 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(14px);
 }
 .brand { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 900; letter-spacing: -.03em; }
-.brand img { object-fit: contain; width: 50px; height: 42px; }
+.brand .compact-face { width: 58px; height: 40px; overflow: visible; }
 nav { display: flex; align-items: center; gap: clamp(18px, 3vw, 40px); font-size: 14px; font-weight: 700; }
 nav a:hover, .footer-links a:hover { color: var(--blue-dark); }
 .nav-cta { padding: 12px 18px; border-radius: 999px; background: var(--ink); color: white; }
@@ -48,9 +48,7 @@ nav a:hover, .footer-links a:hover { color: var(--blue-dark); }
   align-items: center;
   padding: 70px clamp(24px, 7vw, 110px) 90px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(120,192,220,.28), transparent 34%),
-    linear-gradient(135deg, #fffdf9 45%, #eef8fb);
+  background: linear-gradient(135deg, #fffdf9, #ffffff);
 }
 .eyebrow { margin: 0 0 18px; color: var(--blue-dark); font-size: 13px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
 h1 { max-width: 760px; margin: 0; font-size: clamp(52px, 6.7vw, 100px); line-height: .94; letter-spacing: -.065em; }
@@ -65,57 +63,39 @@ h1 { max-width: 760px; margin: 0; font-size: clamp(52px, 6.7vw, 100px); line-hei
 
 .hero-mark { text-align: center; }
 .hero-mark p { max-width: 420px; margin: 22px auto 0; color: var(--muted); font-size: 16px; font-weight: 700; }
-.eyes-card {
-  width: min(100%, 580px);
-  aspect-ratio: 1;
+.eyes-stage {
+  width: min(100%, 620px);
+  min-height: 430px;
   margin: auto;
   position: relative;
-  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--blue);
-  box-shadow: 0 40px 90px rgba(36,103,126,.22);
-  animation: wake 4s ease-in-out both;
+  background: transparent;
 }
-.eyes-card img {
-  width: 92%;
-  height: 92%;
-  object-fit: contain;
-  animation: look 4s ease-in-out both;
+.animated-face { width: 100%; height: auto; overflow: visible; }
+.eye-lid, .pupil circle:first-child, .face-smile path:first-child { fill: var(--ink); }
+.eye-white, .eye-glint, .smile-light { fill: white; }
+.face-eyes { transform-origin: 320px 185px; animation: eyes-widen 4.8s cubic-bezier(.2,.8,.2,1) both; }
+.pupil { animation: pupils-look 4.8s cubic-bezier(.35,.05,.2,1) both; }
+.face-smile { transform-origin: 320px 300px; opacity: 0; animation: grin-open 4.8s cubic-bezier(.2,.9,.25,1) both; }
+@keyframes pupils-look {
+  0%, 18% { transform: translateX(0); }
+  28%, 40% { transform: translateX(-34px); }
+  50%, 62% { transform: translateX(34px); }
+  72%, 100% { transform: translateX(0); }
 }
-.smile {
-  position: absolute;
-  left: 27%;
-  bottom: 12%;
-  width: 46%;
-  height: 21%;
-  overflow: hidden;
-  background: var(--ink);
-  border-radius: 18% 18% 50% 50%;
-  opacity: 0;
-  animation: smile-in 4s ease both;
+@keyframes eyes-widen {
+  0%, 68% { transform: scale(1); }
+  80%, 100% { transform: scale(1.13); }
 }
-.smile::after {
-  content: "";
-  position: absolute;
-  left: 21%;
-  bottom: -15%;
-  width: 58%;
-  height: 44%;
-  border-radius: 50% 50% 0 0;
-  background: white;
+@keyframes grin-open {
+  0%, 76% { opacity: 0; transform: translateY(-18px) scale(.55,.08); }
+  88% { opacity: 1; transform: translateY(0) scale(1.04,1.08); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
-@keyframes look {
-  0%, 12% { transform: translateX(0) scale(.86); opacity: 0; }
-  20% { transform: translateX(0) scale(1); opacity: 1; }
-  36% { transform: translateX(-7%); }
-  52% { transform: translateX(7%); }
-  68% { transform: translateX(0); }
-  82%, 100% { transform: translateX(0) scale(1.08); }
-}
-@keyframes wake { 0% { transform: scale(.92); } 75%, 100% { transform: scale(1); } }
-@keyframes smile-in { 0%, 78% { opacity: 0; transform: scaleX(.45); } 88%, 100% { opacity: 1; transform: scaleX(1); } }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto !important; } .smile { opacity: 1; } }
+.compact-face .face-smile { display: none; }
+.compact-face .face-eyes, .compact-face .pupil { animation: none; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; scroll-behavior: auto !important; } .face-smile { opacity: 1; } }
 
 .belief-band { padding: 62px clamp(24px, 9vw, 145px); background: var(--ink); color: white; }
 .belief-band p { max-width: 1180px; margin: auto; font-size: clamp(25px, 3vw, 43px); line-height: 1.3; letter-spacing: -.025em; }
@@ -161,7 +141,7 @@ footer { padding: 55px clamp(24px, 7vw, 110px); display: grid; grid-template-col
   .hero, .featured, .organizer-callout, .section-heading { grid-template-columns: 1fr; }
   .hero { padding-top: 50px; }
   .hero-mark { order: -1; }
-  .eyes-card { width: min(76vw, 430px); }
+  .eyes-stage { width: min(88vw, 520px); min-height: 340px; }
   .steps { grid-template-columns: repeat(2, 1fr); }
   footer { grid-template-columns: 1fr; }
   .powered-by { justify-self: start; }
