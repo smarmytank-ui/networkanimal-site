@@ -161,3 +161,11 @@ footer { padding: 55px clamp(24px, 7vw, 110px); display: grid; grid-template-col
   .date-block { min-height: 130px; }
   .footer-links { flex-direction: column; }
 }
+
+
+.brand .brand-logo {
+  width: 52px;
+  height: 40px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
