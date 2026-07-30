@@ -1,10 +1,16 @@
 import Link from "next/link";
-import { AnimatedFace } from "./animated-face";
 
 export function Brand() {
   return (
     <Link className="brand" href="/" aria-label="Network Animal home">
-      <AnimatedFace compact />
+      <img
+        className="brand-logo"
+        src="/networkanimal-eyes.png"
+        alt=""
+        width={48}
+        height={38}
+        aria-hidden="true"
+      />
       <span>Network Animal</span>
     </Link>
   );
