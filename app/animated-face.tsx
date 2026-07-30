@@ -11,26 +11,26 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
     >
       <g className="na-face">
         <g className="na-eyebrows" aria-hidden="true">
-          <path d="M70 143C128 55 252 63 302 145C246 107 164 99 70 143Z" />
-          <path d="M570 143C512 55 388 63 338 145C394 107 476 99 570 143Z" />
+          <path transform="translate(25 -18)" d="M52 174C88 73 243 61 299 160c-38-42-82-56-126-39-45 18-69 56-79 91-18-10-32-23-42-38Z" />
+          <path transform="translate(-25 -18)" d="M588 174C552 73 397 61 341 160c38-42 82-56 126-39 45 18 69 56 79 91 18-10 32-23 42-38Z" />
         </g>
         <g className="na-eye na-eye-left">
-          <ellipse className="na-eye-white" cx="190" cy="203" rx="91" ry="88" />
-          <ellipse className="na-eye-outline" cx="190" cy="203" rx="91" ry="88" />
+          <ellipse className="na-eye-white" cx="205" cy="213" rx="64" ry="106" />
+          <ellipse className="na-eye-outline" cx="205" cy="213" rx="64" ry="106" />
           <g className="na-pupil">
-            <ellipse cx="190" cy="211" rx="34" ry="43" />
-            <circle className="na-glint" cx="178" cy="194" r="9" />
+            <ellipse cx="205" cy="224" rx="27" ry="46" />
+            <circle className="na-glint" cx="196" cy="205" r="8" />
           </g>
         </g>
         <g className="na-eye na-eye-right">
-          <ellipse className="na-eye-white" cx="450" cy="203" rx="91" ry="88" />
-          <ellipse className="na-eye-outline" cx="450" cy="203" rx="91" ry="88" />
+          <ellipse className="na-eye-white" cx="435" cy="213" rx="64" ry="106" />
+          <ellipse className="na-eye-outline" cx="435" cy="213" rx="64" ry="106" />
           <g className="na-pupil">
-            <ellipse cx="450" cy="211" rx="34" ry="43" />
-            <circle className="na-glint" cx="438" cy="194" r="9" />
+            <ellipse cx="435" cy="224" rx="27" ry="46" />
+            <circle className="na-glint" cx="426" cy="205" r="8" />
           </g>
         </g>
-        <path className="na-smile" pathLength="1" d="M218 309Q320 395 422 309" />
+        <path className="na-smile" pathLength="1" d="M218 326Q320 407 422 326" />
       </g>
     </svg>
   );
