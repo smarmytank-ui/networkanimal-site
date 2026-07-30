@@ -4,7 +4,7 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
   return (
     <svg
       className={compact ? "animated-face compact-face" : "animated-face na-opener"}
-      viewBox="0 0 640 520"
+      viewBox="0 0 640 550"
       role={compact ? undefined : "img"}
       aria-label={compact ? undefined : "Network Animal eyes blink, look around, open wide, smile, and gather connected Dots"}
       aria-hidden={compact ? true : undefined}
@@ -46,9 +46,9 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
             <g className="na-pupil"><ellipse cx="435" cy="224" rx="27" ry="46" /><circle className="na-glint" cx="426" cy="205" r="8" /></g>
           </g>
           <g className="na-smile" aria-hidden="true">
-            <path className="na-smile-mouth" d="M142 378Q320 438 498 378Q468 498 320 512Q172 498 142 378Z" />
-            <path className="na-smile-teeth" d="M172 400Q320 448 468 400Q435 462 320 477Q205 462 172 400Z" />
-            <path className="na-smile-line" d="M184 414Q320 454 456 414" />
+            <path className="na-smile-mouth" d="M142 398Q320 458 498 398Q468 518 320 532Q172 518 142 398Z" />
+            <path className="na-smile-teeth" d="M172 420Q320 468 468 420Q435 482 320 497Q205 482 172 420Z" />
+            <path className="na-smile-line" d="M184 434Q320 474 456 434" />
           </g>
         </g>
       </g>
