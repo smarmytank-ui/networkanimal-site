@@ -1,0 +1,113 @@
+.na-opener {
+  --face-ink: #101a25;
+  --face-paper: #ffffff;
+  color: var(--face-ink);
+}
+
+.na-opener.on-dark {
+  --face-ink: #ffffff;
+  --face-paper: #080b0d;
+}
+
+.na-face {
+  opacity: 0;
+  transform-origin: 320px 220px;
+  animation: na-face-arrive 5s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.na-eyebrows,
+.na-pupil ellipse {
+  fill: var(--face-ink);
+}
+
+.na-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: na-blink-and-widen 5s linear both;
+}
+
+.na-eye-white {
+  fill: var(--face-paper);
+}
+
+.na-eye-outline {
+  fill: none;
+  stroke: var(--face-ink);
+  stroke-width: 8;
+}
+
+.na-pupil {
+  transform-box: view-box;
+  transform-origin: center;
+  animation: na-look-around 5s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.na-glint {
+  fill: var(--face-paper);
+}
+
+.na-smile {
+  fill: none;
+  stroke: var(--face-ink);
+  stroke-width: 16;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  animation: na-draw-smile 5s cubic-bezier(.2,.85,.25,1) both;
+}
+
+@keyframes na-face-arrive {
+  0% { opacity: 0; transform: translateY(10px); }
+  10%, 74% { opacity: 1; transform: translateY(0); }
+  83% { opacity: 1; transform: translateY(-24px); }
+  91% { opacity: 1; transform: translateY(5px); }
+  96% { opacity: 1; transform: translateY(-3px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes na-blink-and-widen {
+  0%, 18% { transform: scaleY(1); }
+  21% { transform: scaleY(.05); }
+  24%, 38% { transform: scaleY(1); }
+  41% { transform: scaleY(.05); }
+  44%, 58% { transform: scaleY(1); }
+  61% { transform: scaleY(.05); }
+  64% { transform: scaleY(1); }
+  74%, 100% { transform: scale(1.13); }
+}
+
+@keyframes na-look-around {
+  0%, 24% { transform: translateX(0); }
+  29%, 41% { transform: translateX(-42px); }
+  46%, 61% { transform: translateX(42px); }
+  66%, 100% { transform: translateX(0); }
+}
+
+@keyframes na-draw-smile {
+  0%, 73% { opacity: 0; stroke-dashoffset: 1; }
+  75% { opacity: 1; stroke-dashoffset: 1; }
+  90%, 100% { opacity: 1; stroke-dashoffset: 0; }
+}
+
+.compact-face .na-smile {
+  display: none;
+}
+
+.compact-face .na-face,
+.compact-face .na-eye,
+.compact-face .na-pupil {
+  opacity: 1;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .na-face,
+  .na-eye,
+  .na-pupil,
+  .na-smile {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
