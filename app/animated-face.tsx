@@ -4,7 +4,7 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
   return (
     <svg
       className={compact ? "animated-face compact-face" : "animated-face na-opener"}
-      viewBox="0 0 640 460"
+      viewBox="0 0 640 520"
       role={compact ? undefined : "img"}
       aria-label={compact ? undefined : "Network Animal eyes blink, look around, open wide, smile, and gather connected Dots"}
       aria-hidden={compact ? true : undefined}
@@ -30,8 +30,10 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
       <g className="na-face-scale">
         <g className="na-face">
           <g className="na-eyebrows" aria-hidden="true">
+            <g transform="translate(0 -26)">
             <path d="M62 81C105 10 235 6 310 78C312 86 309 92 300 96C230 55 150 42 78 82C72 88 66 86 62 81Z" />
             <path d="M578 81C535 10 405 6 330 78C328 86 331 92 340 96C410 55 490 42 562 82C568 88 574 86 578 81Z" />
+            </g>
           </g>
           <g className="na-eye na-eye-left">
             <ellipse className="na-eye-white" cx="205" cy="213" rx="64" ry="106" />
@@ -44,9 +46,9 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
             <g className="na-pupil"><ellipse cx="435" cy="224" rx="27" ry="46" /><circle className="na-glint" cx="426" cy="205" r="8" /></g>
           </g>
           <g className="na-smile" aria-hidden="true">
-            <path className="na-smile-mouth" d="M150 338Q320 392 490 338Q466 438 320 452Q174 438 150 338Z" />
-            <path className="na-smile-teeth" d="M179 358Q320 400 461 358Q432 408 320 421Q208 408 179 358Z" />
-            <path className="na-smile-line" d="M190 370Q320 407 450 370" />
+            <path className="na-smile-mouth" d="M142 378Q320 438 498 378Q468 498 320 512Q172 498 142 378Z" />
+            <path className="na-smile-teeth" d="M172 400Q320 448 468 400Q435 462 320 477Q205 462 172 400Z" />
+            <path className="na-smile-line" d="M184 414Q320 454 456 414" />
           </g>
         </g>
       </g>
