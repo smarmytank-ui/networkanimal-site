@@ -58,7 +58,7 @@ export async function fetchPublishedEvents(): Promise<PublicEvent[]> {
     .map((event) => {
       const title = event.title.toLowerCase();
       if (title.includes("cigar night")) {
-        return { ...event, event_date: "2026-08-12", start_at: "2026-08-12T17:30:00-07:00", end_at: "2026-08-12T21:30:00-07:00", venue_name: "Caspian Mediterranean Kitchen", street_address: "26772 Portola Parkway, Foothill Ranch, California 92610", location: "Foothill Ranch, California" };
+        return { ...event, title: "Cigar Night Business Mixer", event_date: "2026-08-12", start_at: "2026-08-12T17:30:00-07:00", end_at: "2026-08-12T21:30:00-07:00", venue_name: "Caspian Mediterranean Kitchen", street_address: "26772 Portola Parkway, Foothill Ranch, California 92610", location: "Foothill Ranch, California" };
       }
       if (title === "xbn") {
         return { ...event, event_date: "2026-07-30", start_at: "2026-07-30T17:00:00-07:00", end_at: "2026-07-30T21:00:00-07:00", venue_name: "Anaheim Marriott Suites", street_address: "12015 Harbor Boulevard, Garden Grove, California 92840", location: "Garden Grove, California" };
