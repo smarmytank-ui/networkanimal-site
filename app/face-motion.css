@@ -20,6 +20,12 @@
   fill: var(--face-ink);
 }
 
+.na-eyebrows {
+  transform-box: view-box;
+  transform-origin: 320px 150px;
+  animation: na-brow-react 5s cubic-bezier(.2,.8,.2,1) both;
+}
+
 .na-eye {
   transform-box: fill-box;
   transform-origin: center;
@@ -66,6 +72,21 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes na-brow-react {
+  0%, 18% { transform: translateY(0); }
+  21% { transform: translateY(-6px); }
+  24%, 38% { transform: translateY(0); }
+  41% { transform: translateY(-7px); }
+  44%, 58% { transform: translateY(0); }
+  61% { transform: translateY(-8px); }
+  64% { transform: translateY(0); }
+  74% { transform: translateY(-2px); }
+  83% { transform: translateY(-18px) scaleY(1.04); }
+  91% { transform: translateY(3px); }
+  96% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
 @keyframes na-blink-and-widen {
   0%, 18% { transform: scaleY(1); }
   21% { transform: scaleY(.05); }
@@ -95,6 +116,7 @@
 }
 
 .compact-face .na-face,
+.compact-face .na-eyebrows,
 .compact-face .na-eye,
 .compact-face .na-pupil {
   opacity: 1;
@@ -103,6 +125,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .na-face,
+  .na-eyebrows,
   .na-eye,
   .na-pupil,
   .na-smile {
