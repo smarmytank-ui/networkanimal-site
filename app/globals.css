@@ -176,3 +176,18 @@ footer { padding: 55px clamp(24px, 7vw, 110px); display: grid; grid-template-col
 .content-card h2 + .lede {
   margin-top: clamp(24px, 3vw, 38px);
 }
+
+
+/* Give the opener's relationship message a confident, demo-ready finish. */
+.hero-mark p {
+  width: fit-content;
+  max-width: min(92%, 470px);
+  padding: 12px 20px;
+  border: 1px solid rgba(16, 26, 37, .12);
+  border-radius: 999px;
+  background: rgba(255, 248, 226, .92);
+  color: var(--ink);
+  box-shadow: 0 10px 28px rgba(16, 26, 37, .08);
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.4;
+}
