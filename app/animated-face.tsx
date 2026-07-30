@@ -44,9 +44,9 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
             <g className="na-pupil"><ellipse cx="435" cy="224" rx="27" ry="46" /><circle className="na-glint" cx="426" cy="205" r="8" /></g>
           </g>
           <g className="na-smile" aria-hidden="true">
-            <path className="na-smile-mouth" d="M225 360Q320 388 415 360Q398 425 320 433Q242 425 225 360Z" />
-            <path className="na-smile-teeth" d="M244 373Q320 394 396 373Q379 405 320 412Q261 405 244 373Z" />
-            <path className="na-smile-line" d="M250 380Q320 398 390 380" />
+            <path className="na-smile-mouth" d="M150 338Q320 392 490 338Q466 438 320 452Q174 438 150 338Z" />
+            <path className="na-smile-teeth" d="M179 358Q320 400 461 358Q432 408 320 421Q208 408 179 358Z" />
+            <path className="na-smile-line" d="M190 370Q320 407 450 370" />
           </g>
         </g>
       </g>
