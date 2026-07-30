@@ -11,8 +11,8 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
     >
       <g className="na-face">
         <g className="na-eyebrows" aria-hidden="true">
-          <path d="M62 158C105 63 235 55 310 155C312 162 309 170 300 174C230 116 150 97 78 156C72 162 66 162 62 158Z" />
-          <path d="M578 158C535 63 405 55 330 155C328 162 331 170 340 174C410 116 490 97 562 156C568 162 574 162 578 158Z" />
+          <path d="M62 81C105 10 235 6 310 78C312 86 309 92 300 96C230 55 150 42 78 82C72 88 66 86 62 81Z" />
+          <path d="M578 81C535 10 405 6 330 78C328 86 331 92 340 96C410 55 490 42 562 82C568 88 574 86 578 81Z" />
         </g>
         <g className="na-eye na-eye-left">
           <ellipse className="na-eye-white" cx="205" cy="213" rx="64" ry="106" />
