@@ -64,7 +64,7 @@ export async function fetchPublishedEvents(): Promise<PublicEvent[]> {
         return { ...event, event_date: "2026-07-30", start_at: "2026-07-30T17:00:00-07:00", end_at: "2026-07-30T21:00:00-07:00", venue_name: "Anaheim Marriott Suites", street_address: "12015 Harbor Boulevard, Garden Grove, California 92840", location: "Garden Grove, California" };
       }
       if (title.includes("tee off for mobility") || title.includes("tif for mobility")) {
-        return { ...event, title: "Second Annual TiF for Mobility", event_date: "2027-05-27", start_at: null, end_at: null };
+        return { ...event, title: "Second Annual Tee Off for Mobility", event_date: "2027-05-27", start_at: null, end_at: null };
       }
       return event;
     })
