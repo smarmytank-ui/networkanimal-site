@@ -52,7 +52,23 @@ export async function fetchPublishedEvents(): Promise<PublicEvent[]> {
     { headers: { apikey: key, Authorization: "Bearer " + key } },
   );
   if (!response.ok) throw new Error("Event catalog request failed (" + response.status + ")");
-  const events = (await response.json()) as PublicEvent[];
+  const rawEvents = (await response.json()) as PublicEvent[];
+  const events = rawEvents
+    .filter((event) => event.title.toLowerCase() !== "demo networking night")
+    .map((event) => {
+      const title = event.title.toLowerCase();
+      if (title.includes("cigar night")) {
+        return { ...event, event_date: "2026-08-12", start_at: "2026-08-12T17:30:00-07:00", end_at: "2026-08-12T21:30:00-07:00", venue_name: "Caspian Mediterranean Kitchen", street_address: "26772 Portola Parkway, Foothill Ranch, California 92610", location: "Foothill Ranch, California" };
+      }
+      if (title === "xbn") {
+        return { ...event, event_date: "2026-07-30", start_at: "2026-07-30T17:00:00-07:00", end_at: "2026-07-30T21:00:00-07:00", venue_name: "Anaheim Marriott Suites", street_address: "12015 Harbor Boulevard, Garden Grove, California 92840", location: "Garden Grove, California" };
+      }
+      if (title.includes("tee off for mobility") || title.includes("tif for mobility")) {
+        return { ...event, title: "Second Annual TiF for Mobility", event_date: "2027-05-27", start_at: null, end_at: null };
+      }
+      return event;
+    })
+    .sort((a, b) => (a.event_date ?? a.start_at ?? "").localeCompare(b.event_date ?? b.start_at ?? ""));
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   return events.filter((event) => {
