@@ -11,8 +11,8 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
     >
       <g className="na-face">
         <g className="na-eyebrows" aria-hidden="true">
-          <path transform="translate(25 -18)" d="M52 174C88 73 243 61 299 160c-38-42-82-56-126-39-45 18-69 56-79 91-18-10-32-23-42-38Z" />
-          <path transform="translate(-25 -18)" d="M588 174C552 73 397 61 341 160c38-42 82-56 126-39 45 18 69 56 79 91 18-10 32-23 42-38Z" />
+          <path d="M70 150C110 62 239 56 306 150C246 111 155 94 82 144Z" />
+          <path d="M570 150C530 62 401 56 334 150C394 111 485 94 558 144Z" />
         </g>
         <g className="na-eye na-eye-left">
           <ellipse className="na-eye-white" cx="205" cy="213" rx="64" ry="106" />
@@ -30,7 +30,7 @@ export function AnimatedFace({ compact = false }: { compact?: boolean }) {
             <circle className="na-glint" cx="426" cy="205" r="8" />
           </g>
         </g>
-        <path className="na-smile" pathLength="1" d="M218 326Q320 407 422 326" />
+        <path className="na-smile" pathLength="1" d="M228 367L253 342Q326 402 416 355" />
       </g>
     </svg>
   );
