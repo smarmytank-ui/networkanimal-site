@@ -37,19 +37,9 @@ const fallbackEvent: PublicEvent = {
 };
 
 const columns = [
-  "id",
-  "title",
-  "slug",
-  "event_date",
-  "start_at",
-  "end_at",
-  "venue_name",
-  "street_address",
-  "location",
-  "description",
-  "capacity",
-  "registration_url",
-  "organization_name",
+  "id", "title", "slug", "event_date", "start_at", "end_at",
+  "venue_name", "street_address", "location", "description", "capacity",
+  "registration_url", "organization_name",
 ].join(",");
 
 export async function fetchPublishedEvents(): Promise<PublicEvent[]> {
@@ -58,18 +48,25 @@ export async function fetchPublishedEvents(): Promise<PublicEvent[]> {
   if (!url || !key) return [fallbackEvent];
 
   const response = await fetch(
-    `${url}/rest/v1/networkanimal_public_events?select=${columns}&order=event_date.asc`,
-    { headers: { apikey: key, Authorization: `Bearer ${key}` } },
+    url + "/rest/v1/networkanimal_public_events?select=" + columns + "&order=event_date.asc",
+    { headers: { apikey: key, Authorization: "Bearer " + key } },
   );
-  if (!response.ok) throw new Error(`Event catalog request failed (${response.status})`);
+  if (!response.ok) throw new Error("Event catalog request failed (" + response.status + ")");
   const events = (await response.json()) as PublicEvent[];
-  return events.length ? events : [];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return events.filter((event) => {
+    const source = event.event_date ?? event.start_at;
+    if (!source) return false;
+    const eventDay = new Date(source.includes("T") ? source : source + "T23:59:59");
+    return eventDay >= today;
+  });
 }
 
 function eventDateParts(event: PublicEvent) {
   const source = event.event_date ?? event.start_at;
   if (!source) return { month: "DATE", day: "TBA", year: "" };
-  const date = new Date(source.includes("T") ? source : `${source}T12:00:00`);
+  const date = new Date(source.includes("T") ? source : source + "T12:00:00");
   return {
     month: new Intl.DateTimeFormat("en-US", { month: "short" }).format(date).toUpperCase(),
     day: new Intl.DateTimeFormat("en-US", { day: "2-digit" }).format(date),
@@ -80,12 +77,9 @@ function eventDateParts(event: PublicEvent) {
 function fullDate(event: PublicEvent) {
   const source = event.start_at ?? event.event_date;
   if (!source) return "Date to be announced";
-  const date = new Date(source.includes("T") ? source : `${source}T12:00:00`);
+  const date = new Date(source.includes("T") ? source : source + "T12:00:00");
   return new Intl.DateTimeFormat("en-US", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    year: "numeric",
+    weekday: "long", month: "long", day: "numeric", year: "numeric",
     ...(event.start_at ? { hour: "numeric", minute: "2-digit", timeZoneName: "short" } : {}),
   }).format(date);
 }
@@ -101,9 +95,7 @@ export function EventCard({ event }: { event: PublicEvent }) {
         <p>{fullDate(event)}</p>
         <h2>{event.title}</h2>
         <p>{event.venue_name ?? event.location ?? "Location to be announced"}</p>
-        <Link className="button primary" href={`/event.html?slug=${encodeURIComponent(event.slug)}`}>
-          View event
-        </Link>
+        <Link className="button primary" href={"/event.html?slug=" + encodeURIComponent(event.slug)}>View event</Link>
       </div>
     </article>
   );
@@ -114,18 +106,14 @@ export function LiveEvents() {
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    fetchPublishedEvents()
-      .then(setEvents)
-      .catch(() => {
-        setFailed(true);
-        setEvents([fallbackEvent]);
-      });
+    fetchPublishedEvents().then(setEvents).catch(() => {
+      setFailed(true);
+      setEvents([fallbackEvent]);
+    });
   }, []);
 
   if (!events) return <div className="event-loading">Loading upcoming events…</div>;
-  if (!events.length) {
-    return <div className="content-card"><h2>More purposeful rooms are coming.</h2><p className="lede">There are no published events right now. Check back soon.</p></div>;
-  }
+  if (!events.length) return <div className="content-card"><h2>More purposeful rooms are coming.</h2><p className="lede">There are no published events right now. Check back soon.</p></div>;
 
   return (
     <div className="event-list">
