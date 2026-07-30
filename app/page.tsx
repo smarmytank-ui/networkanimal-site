@@ -18,12 +18,8 @@ export default function Home() {
       <main>
         <section className="hero">
           <div className="hero-copy">
-            <p className="eyebrow">Giving-first networking for real life</p>
-            <h1>Know what you bring. Build relationships that matter.</h1>
-            <p className="hero-lede">
-              Discover your networking animal, walk into the room knowing what
-              you can give, and meet people worth knowing—not just collecting.
-            </p>
+            <h1>ARE YOU NETWORKING WRONG?</h1>
+            <p className="hero-lede">Take the Network Animal challenge.</p>
             <div className="button-row" id="get-started">
               <a className="button primary" href="#how-it-works">
                 Discover your animal
