@@ -21,9 +21,9 @@ export default function Home() {
             <h1>ARE YOU NETWORKING WRONG?</h1>
             <p className="hero-lede">Take the Network Animal challenge.</p>
             <div className="button-row" id="get-started">
-              <a className="button primary" href="#how-it-works">
-                Discover your animal
-              </a>
+              <Link className="button primary" href="/quiz/">
+                Take the 5-question quiz
+              </Link>
               <Link className="button secondary" href="/events">
                 Find an event
               </Link>
@@ -53,6 +53,7 @@ export default function Home() {
               <span>01</span>
               <h3>Discover your animal</h3>
               <p>A short quiz reveals how you naturally connect, give, and build trust.</p>
+              <Link className="text-link" href="/quiz/">Start the quiz →</Link>
             </article>
             <article>
               <span>02</span>

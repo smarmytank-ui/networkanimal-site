@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071d22">
+  <meta name="description" content="Discover your Network Animal at the Built Different Wild Card Charity Poker Tournament.">
+  <title>Discover Your Network Animal · Built Different</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/owl.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./lead.css">
+  <script defer src="./data.js"></script>
+  <script defer src="./config.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <img src="./na_eyes.png" alt="" width="46" height="46">
+      <div><strong>NETWORK<span>ANIMAL</span></strong><small>Built Different tournament edition</small></div>
+    </header>
+
+    <main>
+      <section id="home" class="panel hero">
+        <p class="eyebrow">Your networking style, revealed</p>
+        <h1>What’s your Network Animal?</h1>
+        <p>Five quick questions. Discover the animal that leads your networking style, your mix, and who you connect with best.</p>
+        <button id="start" class="button primary" type="button">Start the quiz <span aria-hidden="true">→</span></button>
+        <p class="fine">No account or email required to see your result.</p>
+      </section>
+
+      <section id="quiz" class="panel hidden" aria-live="polite">
+        <div class="progress-line"><span id="progress-text"></span><span>Network Animal</span></div>
+        <div class="track"><div id="progress-fill"></div></div>
+        <h2 id="question"></h2>
+        <div id="answers" class="answers"></div>
+        <button id="back" class="button text" type="button">← Back</button>
+      </section>
+
+      <section id="result" class="panel hidden" aria-live="polite">
+        <p class="eyebrow">Your Network Animal</p>
+        <div class="result-head"><img id="animal-icon" src="" alt=""><div><h1 id="animal-name"></h1><p id="core-truth"></p></div></div>
+        <div class="insights">
+          <div><small>Your strength</small><p id="strength"></p></div>
+          <div><small>Watch for</small><p id="blind-spot"></p></div>
+          <div><small>Next move</small><p id="next-move"></p></div>
+          <div><small>Best to network with</small><p id="best-match"></p></div>
+        </div>
+        <h2>Your mix</h2>
+        <div id="mix" class="mix"></div>
+        <p class="chip-note">Show this screen to the Network Animal table to get your archetype poker chip.</p>
+        <div class="actions"><button id="share" class="button secondary" type="button">Share result</button><button id="retake" class="button text" type="button">Retake quiz</button></div>
+
+        <section id="connect" class="connect hidden">
+          <h2>Want more from Network Animal?</h2>
+          <p>Your result is yours—no signup required. If you’d like One Purpose Network to reach out about the full experience, you can optionally share your name and email.</p>
+          <button id="open-lead" class="button primary" type="button">Request more information</button>
+          <div id="lead-panel" class="hidden">
+            <iframe id="lead-frame" title="Optional Network Animal follow-up request" loading="lazy"></iframe>
+            <p class="fine">Form not showing? <a id="lead-link" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+          </div>
+        </section>
+        <p class="fine">Want to explore more? <a href="https://networkanimal.com/" target="_blank" rel="noopener">Visit NetworkAnimal.com</a>.</p>
+      </section>
+    </main>
+
+    <footer>Network Animal · An experience from 1Purpose Network</footer>
+  </div>
+</body>
+</html>
